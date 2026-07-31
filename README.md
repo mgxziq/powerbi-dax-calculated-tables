@@ -15,16 +15,40 @@ The main objective of this project is to demonstrate the use of **Calculated Tab
 * **Syntax:**
   ```dax
   Sales Clone = ALL(Sales)
-Canada Sales = FILTER(Sales, Sales[Sales Country] = "Canada")
+  ```
+* **Description:** Creates an exact duplicate of the `Sales` table while ignoring any active filter contexts. Useful for comparative analysis and reference tables.
 
-Anual Sales = 
-SUMMARIZE(
-    Sales, 
-    Sales[Sales Country], 
-    Products[Category], 
-    "Sales", SUM(Sales[Total Price])
-)
+---
 
+### 2. Segmented Data Table (`FILTER`)
+* **Syntax:**
+  ```dax
+  Canada Sales = FILTER(Sales, Sales[Sales Country] = "Canada")
+  ```
+* **Description:** Generates a filtered table containing only transactions from **Canada**, streamlining focused regional analysis.
+
+---
+
+### 3. Summarized & Aggregated Table (`SUMMARIZE`)
+* **Syntax:**
+  ```dax
+  Anual Sales = 
+  SUMMARIZE(
+      Sales, 
+      Sales[Sales Country], 
+      Products[Category], 
+      "Sales", SUM(Sales[Total Price])
+  )
+  ```
+* **Description:** Builds a summary matrix grouping total revenue by `Sales Country` and `Category`.
+
+---
+
+## 📁 Repository Files
+```text
 ├── AdventureWorksData.xlsx                 # Raw Source Data (Excel)
-├── powerbi-dax-calculated-tables.pbix      # Power BI Data Model & Dashboard
+├── 1.pbix                                  # Power BI Data Model & Dashboard
 └── README.md                               # Project Documentation
+```
+
+
