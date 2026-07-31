@@ -15,3 +15,16 @@ The main objective of this project is to demonstrate the use of **Calculated Tab
 * **Syntax:**
   ```dax
   Sales Clone = ALL(Sales)
+Canada Sales = FILTER(Sales, Sales[Sales Country] = "Canada")
+
+Anual Sales = 
+SUMMARIZE(
+    Sales, 
+    Sales[Sales Country], 
+    Products[Category], 
+    "Sales", SUM(Sales[Total Price])
+)
+
+├── AdventureWorksData.xlsx                 # Raw Source Data (Excel)
+├── powerbi-dax-calculated-tables.pbix      # Power BI Data Model & Dashboard
+└── README.md                               # Project Documentation
